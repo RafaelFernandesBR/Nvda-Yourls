@@ -28,7 +28,10 @@ def shortenUrl(url):
 	#get short url
 	shortUrl = response["shorturl"]
 	#return short url
-	return shortUrl
+	if response["statusCode"] == 200:
+		return shortUrl
+	else:
+		return "Erro, tente novamente."
 
 #delet url fron yourls api
 def deleteUrl(url):
@@ -47,9 +50,12 @@ def deleteUrl(url):
 	#parse response
 	response = json.loads(response)
 	#get short url
-	shortUrl = response["message"]
-	#return short url
-	return shortUrl
+	shortUrl = response["statusCode"]
+	#if statusCode 200
+	if shortUrl == 200:
+		return "URL deletada com sucesso!"
+	else:
+		return "Erro, tente novamente."
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self, *args, **kwargs):
@@ -79,7 +85,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	__gestures={
 		"kb:NVDA+shift+U": "encurtaLink",
-		"kb:NVDA+control+U": "deleteLink"
+		"kb:NVDA+CONTROL+U": "deleteLink"
 	}
 
 class NvdaYourlsSettingsPanel(gui.SettingsPanel):
