@@ -7,3 +7,4 @@ para usar o addon, vocè pode pelos seguintes atalhos.
 Atenção: ele só irá apagar, se o domínio do link curto, for o mesmo do YOURLS.
 ## Instalação:
 Instale o addon neste link:
+https://github.com/RafaelFernandesBR/Nvda-Yourls/raw/main/Nvda-Yourls.nvda-addon
